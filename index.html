@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daybreak Cafe — Schwenksville, PA</title>
+  <meta name="description" content="Fresh breakfast & lunch in Schwenksville, PA. Open Tue–Sun 6:30am–2:30pm. Order online or visit us at 4280 Township Line Road." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF;
+      --off-white: #FAFAF8;
+      --light: #F5F2ED;
+      --tan: #E8E0D2;
+      --gold: #C4922A;
+      --green: #4A6741;
+      --green-light: #EEF2EC;
+      --text: #1A1A18;
+      --muted: #6B6459;
+      --border: #E0D8CD;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 48px; width: auto; display: block; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 18px; border-radius: 2px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: #3a5232 !important; }
+    @media(max-width:680px){ .nav-links { display:none; } }
+
+    /* HERO */
+    .hero { padding-top: 64px; display: grid; grid-template-columns: 1fr 1fr; min-height: 92vh; }
+    .hero-left { background: var(--light); display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 5rem; }
+    .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; color: var(--text); margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--green); }
+    .hero-desc { font-size: 1rem; line-height: 1.85; color: var(--muted); max-width: 380px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-green { display: inline-block; padding: 14px 28px; background: var(--green); color: #fff; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
+    .btn-green:hover { background: #3a5232; transform: translateY(-1px); }
+    .btn-line { display: inline-block; padding: 13px 22px; border: 1px solid var(--border); color: var(--muted); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.2s, color 0.2s; }
+    .btn-line:hover { border-color: var(--muted); color: var(--text); }
+    .hero-meta { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 2.5rem; }
+    .meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .meta-val { font-size: 14px; color: var(--text); }
+    .hero-right { background: var(--tan); position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; }
+    .hero-right .photo { overflow: hidden; background: var(--tan); }
+    .hero-right .photo img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hero-right .photo-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: var(--tan); }
+
+    /* BANNER */
+    .banner { background: var(--green); padding: 13px 2rem; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .b-item { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; letter-spacing: 0.07em; color: rgba(255,255,255,0.88); text-decoration: none; }
+    .b-item svg { width: 14px; height: 14px; opacity: 0.7; flex-shrink: 0; }
+    .b-item:hover { color: #fff; }
+
+    /* ABOUT */
+    .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+    .about-photo { overflow: hidden; background: var(--tan); position: relative; }
+    .about-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+    .about-copy { background: var(--off-white); padding: 5rem 4.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .about-copy h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 1.25rem; }
+    .about-copy h2 em { font-style: italic; color: var(--green); }
+    .about-copy p { font-size: 0.95rem; line-height: 1.85; color: var(--muted); max-width: 420px; margin-bottom: 1rem; }
+
+    /* PHOTO GRID */
+    .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 240px 240px; gap: 4px; background: var(--border); }
+    .pg { overflow: hidden; background: var(--tan); }
+    .pg img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.4s ease; }
+    .pg:hover img { transform: scale(1.05); }
+    .pg.tall { grid-row: span 2; }
+    .pg.wide { grid-column: span 2; }
+
+    /* MENU HIGHLIGHTS */
+    .menu-sec { background: var(--light); padding: 6rem 2rem; text-align: center; }
+    .menu-sec h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--text); margin-bottom: 0.5rem; }
+    .menu-sec h2 em { font-style: italic; color: var(--green); }
+    .menu-sec .sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 3rem; }
+    .menu-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); max-width: 860px; margin: 0 auto 2.5rem; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .mc { background: var(--white); padding: 2rem 1.5rem; text-align: center; }
+    .mc-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .mc h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .mc p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* REVIEWS */
+    .reviews { background: var(--white); padding: 6rem 2rem; }
+    .reviews-head { text-align: center; margin-bottom: 3rem; }
+    .stars-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); border: 1px solid rgba(74,103,65,0.15); padding: 6px 16px; border-radius: 99px; font-size: 13px; font-weight: 500; color: var(--green); margin-bottom: 1rem; }
+    .star { color: #F4A020; }
+    .reviews-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; color: var(--text); }
+    .reviews-head h2 em { font-style: italic; color: var(--green); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; max-width: 980px; margin: 0 auto 2rem; }
+    .rc { background: var(--off-white); border: 1px solid var(--border); border-radius: 3px; padding: 2rem; }
+    .rc-stars { margin-bottom: 0.75rem; font-size: 13px; }
+    .rc-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.7; color: var(--text); margin-bottom: 1.25rem; }
+    .rc-author { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .rc-source { font-size: 11px; color: var(--gold); margin-top: 2px; }
+
+    /* ORDER CTA */
+    .cta { background: var(--green); padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .cta::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(255,255,255,0.02) 50px, rgba(255,255,255,0.02) 100px); }
+    .cta h2 { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 400; color: #fff; margin-bottom: 0.75rem; }
+    .cta h2 em { font-style: italic; opacity: 0.75; }
+    .cta p { position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.7; }
+    .btn-white { position: relative; display: inline-block; padding: 15px 36px; background: #fff; color: var(--green); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: opacity 0.2s, transform 0.15s; }
+    .btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* FIND US */
+    .find { display: grid; grid-template-columns: 1fr 1fr; }
+    .find-map { min-height: 420px; position: relative; background: var(--tan); }
+    .find-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .find-info { background: var(--off-white); padding: 4.5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .find-info h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; color: var(--text); margin-bottom: 2rem; }
+    .fr { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 1.5rem; }
+    .fr svg { width: 17px; height: 17px; color: var(--green); flex-shrink: 0; margin-top: 3px; }
+    .fr-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fr-val { font-size: 14px; color: var(--text); line-height: 1.6; }
+    .fr-val a { color: var(--text); text-decoration: none; }
+    .fr-val a:hover { color: var(--green); }
+
+    /* SOCIALS */
+    .socials { background: var(--light); padding: 3.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
+    .socials-label { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+    .social-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .sb { display: flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--white); border: 1px solid var(--border); border-radius: 2px; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); transition: border-color 0.2s, color 0.2s; }
+    .sb svg { width: 14px; height: 14px; }
+    .sb:hover { border-color: var(--green); color: var(--green); }
+
+    /* FOOTER */
+    footer { background: var(--text); padding: 2rem 2rem; text-align: center; }
+    footer p { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.75); }
+
+    /* RESPONSIVE */
+    @media(max-width:820px){
+      .hero, .about, .find { grid-template-columns: 1fr; }
+      .hero-left { padding: 3.5rem 2rem 2.5rem; }
+      .hero-right { min-height: 300px; }
+      .about-photo { min-height: 260px; }
+      .about-copy { padding: 3rem 2rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .pg.tall { grid-row: span 1; }
+      .find-map { min-height: 260px; position: relative; }
+      .find-info { padding: 3rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="logo.png" alt="Daybreak Cafe"></a>
+  <div class="nav-links">
+    <a href="#about">Who We Are</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#find">Visit Us</a>
+    <a href="https://daybreak-cafe.square.site/" target="_blank" class="nav-cta">Order Online</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <img src="logo.png" alt="Daybreak Cafe logo" style="height:140px;width:auto;max-width:115px;margin-bottom:1rem;object-fit:contain;">
+    <div class="eyebrow">Schwenksville, Pennsylvania</div>
+    <h1>Fresh.<br><em>Made with</em><br>Love.</h1>
+    <p class="hero-desc">A locally owned breakfast &amp; lunch cafe where every dish is made from scratch and every guest feels like a regular.</p>
+    <div class="hero-btns">
+      <a href="https://daybreak-cafe.square.site/" target="_blank" class="btn-green">Order Online →</a>
+      <a href="#find" class="btn-line">Find Us</a>
+    </div>
+    <div class="hero-meta">
+      <div>
+        <div class="meta-label">Hours</div>
+        <div class="meta-val">Tue – Sun · 6:30 am – 2:30 pm</div>
+      </div>
+      <div>
+        <div class="meta-label">Closed</div>
+        <div class="meta-val">Mondays</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ PHOTO SETUP — see instructions at bottom of this file -->
+  <div class="hero-right">
+    <div class="photo"><img src="photo-hero1.jpg" alt="Daybreak Cafe breakfast plate" onerror="this.parentElement.style.background='#c9b99f'"></div>
+    <div class="photo"><img src="photo-hero2.jpg" alt="Daybreak Cafe food" onerror="this.parentElement.style.background='#b5a58d'"></div>
+    <div class="photo"><img src="photo-hero3.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#d4c5aa'"></div>
+    <div class="photo"><img src="photo-hero4.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#a89070'"></div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="banner">
+  <span class="b-item">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    Tue – Sun · 6:30 am – 2:30 pm
+  </span>
+  <a href="https://maps.google.com/?q=4280+Township+Line+Road+Schwenksville+PA" target="_blank" class="b-item">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    4280 Township Line Rd, Schwenksville PA
+  </a>
+  <a href="tel:4842295941" class="b-item">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.92z"/></svg>
+    (484) 229-5941
+  </a>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-photo">
+    <img src="photo-about.jpg" alt="Inside Daybreak Cafe" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#d4c9b5,#b8a88a)'">
+  </div>
+  <div class="about-copy">
+    <div class="section-tag">Who we are</div>
+    <h2>A neighborhood cafe<br><em>worth waking up for</em></h2>
+    <p>We're a locally owned and operated cafe in Skippack, serving fresh, made-with-love breakfast and lunch every morning.</p>
+    <p>Every plate comes from our kitchen with care — real ingredients, familiar flavors, and a genuine welcome every time you walk through the door.</p>
+    <a href="menu.html" class="btn-green" style="align-self:flex-start;margin-top:1.25rem;">See Our Menu →</a>
+  </div>
+</section>
+
+<!-- PHOTO MOSAIC -->
+<div class="photo-grid">
+  <div class="pg tall"><img src="photo-m1.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#c8b99a'"></div>
+  <div class="pg"><img src="photo-m2.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#b5a88a'"></div>
+  <div class="pg"><img src="photo-m3.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#d4c5aa'"></div>
+  <div class="pg"><img src="photo-m4.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#a89575'"></div>
+  <div class="pg wide"><img src="photo-m5.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#c0ad92'"></div>
+  <div class="pg"><img src="photo-m6.jpg" alt="Daybreak Cafe" onerror="this.parentElement.style.background='#b0a080'"></div>
+</div>
+
+<!-- MENU HIGHLIGHTS -->
+<section class="menu-sec">
+  <div class="section-tag">What we serve</div>
+  <h2>Breakfast &amp; Lunch, <em>made from scratch</em></h2>
+  <p class="sub">Fluffy pancakes, hearty omelets, fresh sandwiches, soups &amp; more — every day.</p>
+  <div class="menu-cards">
+    <div class="mc"><span class="mc-icon">🥞</span><h3>Breakfast</h3><p>Pancakes, omelets, eggs any style, skillets &amp; more</p></div>
+    <div class="mc"><span class="mc-icon">🥪</span><h3>Lunch</h3><p>Sandwiches, wraps, salads, soups &amp; hot plates</p></div>
+    <div class="mc"><span class="mc-icon">☕</span><h3>Coffee &amp; Drinks</h3><p>Coffee, tea, juice &amp; morning beverages</p></div>
+    <div class="mc"><span class="mc-icon">✨</span><h3>Daily Specials</h3><p>Fresh rotating specials — follow us on social to see today's</p></div>
+  </div>
+  <a href="menu.html" class="btn-green">View Full Menu →</a>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-head">
+    <div class="stars-pill"><span class="star">★★★★★</span> 5 Stars on Google</div>
+    <h2>Don't just take <em>our word for it</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <!-- ★ REVIEW INSTRUCTIONS: 
+         Go to your Google Business Profile (search "Daybreak Cafe Schwenksville" while logged in to Google).
+         Click Reviews → copy 3 real quotes below. Replace the text and reviewer names. -->
+    <div class="rc">
+      <div class="rc-stars"><span class="star">★★★★★</span></div>
+      <p class="rc-text">"Little cozy cafe serving breakfast and lunch. Had lunch there twice and the food was very tasty. Service was very friendly. Can't wait to try breakfast food next. Definitely worth the trip."</p>
+      <div class="rc-author">— Peter M.</div>
+      <div class="rc-source">Google Review</div>
+    </div>
+    <div class="rc">
+      <div class="rc-stars"><span class="star">★★★★★</span></div>
+      <p class="rc-text">"Absolutely fantastic! People were delightful, and Carlos was an excellent, excellent cook. Had eggs Benedict that were the best I've ever had, bar none. Can't recommend this place enough!"</p>
+      <div class="rc-author">— Mike S.</div>
+      <div class="rc-source">Google Review</div>
+    </div>
+    <div class="rc">
+      <div class="rc-stars"><span class="star">★★★★★</span></div>
+      <p class="rc-text">"The food is excellent. So many choices! The coffee is amazing too! Staff is super friendly as well. This needs to be our go to place from now on!"</p>
+      <div class="rc-author">— A.M.</div>
+      <div class="rc-source">Google Review</div>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <a href="https://maps.google.com/?q=Daybreak+Cafe+Schwenksville+PA" target="_blank" class="btn-line" style="font-size:11px;">Read All Reviews on Google →</a>
+  </div>
+</section>
+
+<!-- ORDER CTA -->
+<section class="cta">
+  <img src="logo-white.png" alt="Daybreak Cafe" style="height:100px;width:auto;max-width:82px;margin-bottom:1.5rem;opacity:0.95;object-fit:contain;">
+  <h2>Ready to order? <em>We're ready for you.</em></h2>
+  <p>Order ahead online for easy pickup — skip the wait, enjoy the food.</p>
+  <a href="https://daybreak-cafe.square.site/" target="_blank" class="btn-white">Order Online Now →</a>
+</section>
+
+<!-- FIND US -->
+<section class="find" id="find">
+  <div class="find-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.123456789!2d-75.44876!3d40.25720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6cbc1f45a4b13%3A0x1!2s4280+Township+Line+Rd%2C+Schwenksville%2C+PA+19473!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Daybreak Cafe map"></iframe>
+  </div>
+  <div class="find-info">
+    <h2>Come find us</h2>
+    <div class="fr">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div><div class="fr-label">Address</div><div class="fr-val"><a href="https://maps.google.com/?q=4280+Township+Line+Road+Schwenksville+PA" target="_blank">4280 Township Line Road<br>Schwenksville, PA 19473</a></div></div>
+    </div>
+    <div class="fr">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div><div class="fr-label">Hours</div><div class="fr-val">Tuesday – Sunday · 6:30 am – 2:30 pm<br><span style="color:var(--muted);font-size:13px">Closed Mondays</span></div></div>
+    </div>
+    <div class="fr">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.92z"/></svg>
+      <div><div class="fr-label">Phone</div><div class="fr-val"><a href="tel:4842295941">(484) 229-5941</a></div></div>
+    </div>
+    <div class="fr">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div><div class="fr-label">Email</div><div class="fr-val"><a href="mailto:daybreakcafepa@gmail.com">daybreakcafepa@gmail.com</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIALS -->
+<div class="socials">
+  <p class="socials-label">Follow along</p>
+  <div class="social-row">
+    <a href="https://www.facebook.com/p/Daybreak-Cafe-61580096095319/" target="_blank" class="sb">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/daybreakcafes/" target="_blank" class="sb">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="https://www.tiktok.com/@daybreak.cafe4" target="_blank" class="sb">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      TikTok
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Daybreak Cafe · Schwenksville, PA · <a href="mailto:daybreakcafepa@gmail.com">daybreakcafepa@gmail.com</a></p>
+</footer>
+
+<!--
+╔══════════════════════════════════════════════════════════╗
+║  SETUP INSTRUCTIONS — read before uploading to GitHub   ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  PHOTOS (required for the image sections to show):       ║
+║  1. Open Instagram or Facebook on your computer          ║
+║  2. Click on a photo you want to use                     ║
+║  3. Right-click the photo → "Open image in new tab"      ║
+║  4. Copy the full URL from your browser's address bar    ║
+║  5. Paste it in place of PHOTO_1_URL, PHOTO_2_URL, etc.  ║
+║     (There are 11 photo slots — use your best shots)     ║
+║                                                          ║
+║  REVIEWS (5-star Google quotes):                         ║
+║  1. Google "Daybreak Cafe Schwenksville" while signed in ║
+║  2. Click on your listing → Reviews tab                  ║
+║  3. Copy 3 real reviews and paste them into the          ║
+║     "rc-text" paragraphs in the Reviews section above    ║
+║  4. Update the reviewer names in "rc-author"             ║
+║                                                          ║
+║  SQUARE MENU QUESTION:                                   ║
+║  The "Order Online" links already point to               ║
+║  daybreakcafes.com — that's your current Square URL.     ║
+║  Once your new site goes live at daybreakcafes.com,      ║
+║  you'll need to update your Square account to use a      ║
+║  different URL for the ordering page (like               ║
+║  order.daybreakcafes.com or your Square-hosted link).    ║
+║  In Square: go to Online → Settings → change the domain. ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+-->
+
+</body>
+</html>

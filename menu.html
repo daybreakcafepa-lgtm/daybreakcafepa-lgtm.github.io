@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Daybreak Cafe</title>
+  <meta name="description" content="View the full Daybreak Cafe menu. Breakfast, lunch, omelets, pancakes, sandwiches & more in Schwenksville, PA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF;
+      --off-white: #FAFAF8;
+      --light: #F5F2ED;
+      --tan: #E8E0D2;
+      --gold: #C4922A;
+      --green: #4A6741;
+      --text: #1A1A18;
+      --muted: #6B6459;
+      --border: #E0D8CD;
+    }
+    body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); background: var(--off-white); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 48px; width: auto; display: block; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 9px 18px; border-radius: 2px; }
+    .nav-cta:hover { background: #3a5232 !important; }
+    @media(max-width:600px){ .nav-links { display: none; } }
+
+    .page-header {
+      background: var(--light);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; color: var(--text); margin-bottom: 0.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--green); }
+    .page-header p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+    .btn-green { display: inline-block; padding: 13px 28px; background: var(--green); color: #fff; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
+    .btn-green:hover { background: #3a5232; }
+
+    .menu-wrap {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-page {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .menu-page-label {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .menu-page img {
+      width: 100%;
+      display: block;
+    }
+
+    .order-strip {
+      background: var(--green);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .order-strip h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
+    .order-strip p { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; }
+    .btn-white { display: inline-block; padding: 13px 32px; background: #fff; color: var(--green); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: opacity 0.2s; }
+    .btn-white:hover { opacity: 0.9; }
+
+    footer { background: var(--text); padding: 2rem; text-align: center; }
+    footer p { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.75); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Daybreak Cafe"></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">Our Story</a>
+    <a href="index.html#find">Visit Us</a>
+    <a href="https://daybreak-cafe.square.site/" target="_blank" class="nav-cta">Order Online</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <img src="logo.png" alt="Daybreak Cafe" style="height:110px;width:auto;margin-bottom:1rem;">
+  <span class="eyebrow">Daybreak Cafe · Schwenksville, PA</span>
+  <h1>Our <em>Full Menu</em></h1>
+  <p>Tue – Sun · 6:30 am – 2:30 pm · Full menu served all day · Take out available</p>
+  <a href="https://daybreak-cafe.square.site/" target="_blank" class="btn-green">Order Online for Pickup or Delivery →</a>
+</div>
+
+<div class="menu-wrap">
+  <div class="menu-page">
+    <div class="menu-page-label">Page 1 — Omelets, Benedicts, Pancakes, French Toast, Waffles, Breakfast Plates</div>
+    <img src="menu-1.png" alt="Daybreak Cafe Menu Page 1" />
+  </div>
+  <div class="menu-page">
+    <div class="menu-page-label">Page 2 — Breakfast continued, Burgers, Sandwiches, Wraps, Salads, Sides, Beverages</div>
+    <img src="menu-2.png" alt="Daybreak Cafe Menu Page 2" />
+  </div>
+</div>
+
+<div class="order-strip">
+  <img src="logo-white.png" alt="Daybreak Cafe" style="height:90px;width:auto;margin-bottom:1rem;">
+  <h2>Ready to order?</h2>
+  <p>Order ahead online and pick up when you arrive.</p>
+  <a href="https://daybreak-cafe.square.site/" target="_blank" class="btn-white">Order Online Now →</a>
+</div>
+
+<footer>
+  <p>© 2025 Daybreak Cafe · Schwenksville, PA · <a href="mailto:daybreakcafepa@gmail.com">daybreakcafepa@gmail.com</a> · <a href="tel:4842295941">(484) 229-5941</a></p>
+</footer>
+
+</body>
+</html>
